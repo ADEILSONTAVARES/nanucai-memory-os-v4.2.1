@@ -1,0 +1,5 @@
+ChatKit:
+  rule_no_raw_in_chat: true
+  format:
+    facts: "array<{fact, source, confidence}>"
+    pointers: "array<{uri, description}>"

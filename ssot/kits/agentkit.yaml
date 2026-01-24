@@ -1,0 +1,4 @@
+AgentKit:
+  contract:
+    input: ["action", "parameters", "context", "budget_available"]
+    output: ["result", "receipts[]", "evidence_refs[]", "budget_consumed"]

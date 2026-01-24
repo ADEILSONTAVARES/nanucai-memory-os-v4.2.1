@@ -1,0 +1,31 @@
+LEI_1_SSOT_OBRIGATORIO:
+  regra: "Nada existe se não estiver no SSOT"
+  enforcement: "Build falha se não tiver spec"
+
+LEI_2_GATES_OBRIGATORIOS:
+  regra: "Nada entra em produção sem passar nos gates"
+  gates_minimos: ["Zero", "Gelo", "Doctor1", "Doctor2 (297+)"]
+
+LEI_3_EVIDENCIA_OBRIGATORIA:
+  regra: "Nada responde factual sem evidência"
+  fontes_validas: ["SSOT", "receipt", "RAG com pQ2", "ledger"]
+
+LEI_4_CUSTO_CONTROLADO:
+  regra: "Nada explode custo ou trava LLM"
+  thresholds: {"30%": "Motor anti-stall", "60%": "Gelo corta", "90%": "Emergência"}
+
+LEI_5_TARGET_NAO_E_MEASURED:
+  regra: "TARGET é estimativa, MEASURED é prova"
+  requires: ["Harness 7d", "Ledgers preenchidos", "Evidence packs", "AAM PR"]
+
+LEI_6_RECEIPTS_OBRIGATORIOS:
+  regra: "Sem receipts, sem ação crítica"
+  acoes_criticas: ["Billing", "Data deletion", "Security", "Communication"]
+
+LEI_7_NO_HOLES:
+  regra: "Todos os 52 Studios têm spec completa"
+  campos_obrigatorios: ["memory_by_plan", "connectors_mcp", "evidence_paths", "receipts_policy", "gates", "retention_policy", "cost_contribution"]
+
+LEI_8_SAFE_BY_DEFAULT:
+  regra: "Nada executa que possa cobrar sem EXECUTE explícito"
+  default: "SAFE mode"

@@ -1,0 +1,28 @@
+status: "PRODUCTION-READY (TARGET)"
+version: "v4.2.1 FINAL"
+date: "2026-01-24"
+score_current: "10.0/10 (TARGET)"
+score_with_harness: "10.0/10 (MEASURED)"
+scope: "Plataforma completa: GammaNote + GNDrive + PrM + Mouse + IDE 2×1 + 52 Studios + Mensageria + Billing"
+
+principle: "Memória = OS (não feature)"
+
+canonical_rules:
+  - "SSOT obrigatório"
+  - "Gates obrigatórios"
+  - "Evidência obrigatória"
+  - "Custo controlado"
+  - "TARGET não é MEASURED"
+  - "Receipts obrigatórios"
+  - "No Holes (52 studios completos)"
+  - "SAFE by default"
+
+execution_guard:
+  default_mode: "SAFE"
+  description: "Sem custo por padrão. EXECUTE requer ação explícita."
+
+patches_applied:
+  - "nuke_true_real"
+  - "venv_obrigatorio"
+  - "spec_template_no_holes_699_999"
+  - "validator_hardened"

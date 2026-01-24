@@ -1,0 +1,89 @@
+studio_id: S46
+name: Doctor 1 + 2
+category: infra
+description: ''
+memory_by_plan:
+  '69':
+    hot_redis: local
+    trash: filesystem
+    deep: sqlite
+    cost_contribution: $0-0.50/mês
+  99D:
+    hot_redis: upstash
+    trash: r2 opt
+    deep: d1
+    cost_contribution: $0.20-2/mês
+  '297':
+    hot_redis: upstash pro
+    trash: r2
+    deep: supabase
+    lta: true
+    cost_contribution: $0.50-5/mês
+  '699':
+    hot_redis: dedicated
+    trash: r2 extended
+    deep: supabase pro+
+    lta: true
+    cost_contribution: $1-10/mês
+  '999':
+    hot_redis: ha
+    trash: r2 max
+    deep: supabase team
+    lta: true
+    cost_contribution: $2-20/mês
+connectors_mcp:
+  active: []
+  reserved: []
+evidence_paths:
+  receipts: /vault/receipts/S46/
+  evidence: /vault/evidence/S46/
+  replay: /vault/replay/S46/
+  packs: /vault/packs/S46/
+receipts_policy:
+  critical_actions:
+  - action: send_email
+    receipt_required: true
+    idempotency_required: true
+  retention_by_plan:
+    '69': 30d
+    99D: 180d
+    '297': 365d
+    '699': 540d
+    '999': 730d
+gates:
+  zero:
+    enabled: ALWAYS
+  gelo:
+    thresholds:
+      motor_on: 30%
+      cut_strong: 60%
+      emergency: 90%
+  doctor1:
+    enabled: ALWAYS
+  doctor2:
+    enabled_from_plan: '297'
+retention_policy:
+  '69':
+    hot: session
+    trash: 30d
+  99D:
+    hot: 1h-24h
+    trash: 180d
+  '297':
+    hot: 1h-24h
+    trash: 365d
+    lta: 365d-730d
+  '699':
+    hot: 1h-24h
+    trash: 540d
+    lta: 540d-730d+
+  '999':
+    hot: 1h-24h
+    trash: 730d
+    lta: 730d+
+cost_contribution:
+  '69': $0-0.50/mês
+  99D: $0.20-2/mês
+  '297': $0.50-5/mês
+  '699': $1-10/mês
+  '999': $2-20/mês

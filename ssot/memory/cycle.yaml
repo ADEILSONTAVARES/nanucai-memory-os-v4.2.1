@@ -1,0 +1,2 @@
+CYCLE:
+  flow: "Redis HOT -> TRASH/Vault -> LTA (297+) -> Deep/Ledger"

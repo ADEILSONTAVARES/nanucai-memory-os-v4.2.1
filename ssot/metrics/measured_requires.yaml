@@ -1,0 +1,8 @@
+status: "CANON"
+rule: "Não pode dizer MEASURED sem cumprir TODOS"
+requires:
+  - "Harness 7 dias"
+  - "API History DB"
+  - "Token Ledger"
+  - "Evidence packs"
+  - "AAM PR + Doctor2"

@@ -1,0 +1,4 @@
+TRIO_OPERACIONAL:
+  MEMO_1: {role: "Gerencia memória + lifecycle"}
+  AAM: {role: "Audita + promove MEASURED"}
+  AgentMCP_CORE: {role: "Execução com receipts"}

@@ -1,0 +1,17 @@
+version: "v4.2.1"
+status: "CANON"
+purpose: "Botão liga/desliga execução para evitar custo"
+default_mode: "SAFE"
+
+modes:
+  SAFE:
+    description: "Só valida/gera/checa. Não chama integrações pagas."
+    allow_paid_calls: false
+  EXECUTE:
+    description: "Permite execução real (pode gerar custo)."
+    allow_paid_calls: true
+
+rules:
+  - "SAFE é o default"
+  - "EXECUTE só com ação explícita"
+  - "Todas paid APIs requerem EXECUTE mode"

@@ -1,0 +1,55 @@
+version: "v4.2.1"
+total: 52
+studios:
+  - {id: "S00", name: "GammaNote Live Hub", category: "core"}
+  - {id: "S01", name: "WorGamma", category: "core"}
+  - {id: "S02", name: "IDE 2×1 Builder", category: "core"}
+  - {id: "S03", name: "Vídeo e Cinema 7×", category: "7×"}
+  - {id: "S04", name: "Imagem e Design 7×", category: "7×"}
+  - {id: "S05", name: "Voz TTS STT 7×", category: "7×"}
+  - {id: "S06", name: "Música e Áudio 7×", category: "7×"}
+  - {id: "S07", name: "Shorts Repurpose 7×", category: "7×"}
+  - {id: "S08", name: "Acessibilidade 7×", category: "7×"}
+  - {id: "S09", name: "Integrações", category: "core"}
+  - {id: "S10", name: "Automações", category: "core"}
+  - {id: "S11", name: "Dashboards", category: "core"}
+  - {id: "S12", name: "Biblioteca Assets", category: "core"}
+  - {id: "S13", name: "Localização", category: "core"}
+  - {id: "S14", name: "Cursos LMS", category: "core"}
+  - {id: "S15", name: "Marketplace", category: "core"}
+  - {id: "S16", name: "Milhas Viagens", category: "core"}
+  - {id: "S17", name: "Documentos Pro", category: "core"}
+  - {id: "S18", name: "Comunidades", category: "core"}
+  - {id: "S19", name: "NcAI G10x", category: "core"}
+  - {id: "S20", name: "Conta Privacidade", category: "core"}
+  - {id: "S21", name: "Mensageria 7×", category: "7×"}
+  - {id: "S22", name: "Social Automation 7×", category: "7×"}
+  - {id: "S23", name: "Tráfego Pago 7×", category: "7×"}
+  - {id: "S24", name: "Métrica Viral 7×", category: "7×"}
+  - {id: "S25", name: "Captação Leads 7×", category: "7×"}
+  - {id: "S26", name: "CRM Vendas", category: "core"}
+  - {id: "S27", name: "Domínios DNS Deploy", category: "infra"}
+  - {id: "S28", name: "Church 7×", category: "7×"}
+  - {id: "S29", name: "Live Streaming 7×", category: "7×"}
+  - {id: "S30", name: "Calls WebRTC 7×", category: "7×"}
+  - {id: "S31", name: "Afiliados Royalties", category: "core"}
+  - {id: "S32", name: "Publicação KDP", category: "core"}
+  - {id: "S33", name: "Pesquisa Radar", category: "core"}
+  - {id: "S34", name: "Billing", category: "infra"}
+  - {id: "S35", name: "Pagamentos", category: "infra"}
+  - {id: "S36", name: "Times Permissões", category: "infra"}
+  - {id: "S37", name: "Support Tickets", category: "infra"}
+  - {id: "S38", name: "A11y Avançada", category: "core"}
+  - {id: "S39", name: "3D Games", category: "core"}
+  - {id: "S40", name: "Marketplaces 3D", category: "core"}
+  - {id: "S41", name: "CONNECTORS_REGISTRY", category: "infra"}
+  - {id: "S42", name: "ACTION_REGISTRY", category: "infra"}
+  - {id: "S43", name: "NO_HOLES_CHECK", category: "infra"}
+  - {id: "S44", name: "MCP Factory", category: "infra"}
+  - {id: "S45", name: "Router Policy", category: "infra"}
+  - {id: "S46", name: "Doctor 1 + 2", category: "infra"}
+  - {id: "S47", name: "Benchmark Lab", category: "infra"}
+  - {id: "S48", name: "API History + Replay", category: "infra"}
+  - {id: "S49", name: "Evidence Ledger", category: "infra"}
+  - {id: "S50", name: "Cache QUANTUM", category: "infra"}
+  - {id: "S51", name: "RAG QUANTUM + LTA", category: "infra"}

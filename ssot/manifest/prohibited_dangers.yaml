@@ -1,0 +1,9 @@
+PERIGOS_PROIBIDOS:
+  billing: ["charge sem aprovação dupla", "refund >$100", "change plan sem Doctor2"]
+  data: ["hard delete sem backup", "purge sem snapshot", "schema change sem Doctor2"]
+  security: ["rotate keys sem backup", "bulk permission change"]
+  deployment: ["deploy sem canary (297+)", "rollback sem snapshot"]
+
+prepare_only_rule:
+  when_budget_ge_90_percent: true
+  enforcement: "Em 90% budget, só prepare-only"

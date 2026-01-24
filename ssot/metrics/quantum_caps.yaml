@@ -1,0 +1,6 @@
+caps_by_plan:
+  "69": {quantum_activation_cap: "0%"}
+  "99D": {quantum_activation_cap: "<=1%"}
+  "297": {quantum_activation_cap: "<=5%"}
+  "699": {quantum_activation_cap: "<=7%"}
+  "999": {quantum_activation_cap: "<=10%"}

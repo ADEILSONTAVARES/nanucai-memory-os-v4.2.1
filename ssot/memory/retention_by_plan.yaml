@@ -1,0 +1,6 @@
+retention_by_plan:
+  "69": {hot: "session", trash: "30d"}
+  "99D": {hot: "1h-24h", trash: "180d"}
+  "297": {hot: "1h-24h", trash: "365d", lta: "365d-730d"}
+  "699": {hot: "1h-24h", trash: "540d", lta: "540d-730d+"}
+  "999": {hot: "1h-24h", trash: "730d", lta: "730d+"}

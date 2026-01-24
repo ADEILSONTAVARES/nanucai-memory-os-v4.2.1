@@ -1,0 +1,8 @@
+FORMATION_D_7_CORINGAS:
+  - {name: "Agente Zero", role: "Gate 5× evidência"}
+  - {name: "Agente Gelo", role: "Corte 30/60/90%"}
+  - {name: "TRASH/Vault", role: "Bruto + pointers"}
+  - {name: "Redis Antídoto", role: "Keys versionadas"}
+  - {name: "pQ2", role: "Quorum 2+ trilhas"}
+  - {name: "Quantum gated", role: "Turbo com teto"}
+  - {name: "Receipts + Replay", role: "Idempotência"}
