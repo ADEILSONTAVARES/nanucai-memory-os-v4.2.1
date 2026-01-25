@@ -2,3 +2,5 @@
 # runtime artifacts
 vault/receipts/
 vault/metrics/
+
+vault/artifacts/

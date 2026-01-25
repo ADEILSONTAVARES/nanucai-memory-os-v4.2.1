@@ -54,8 +54,6 @@ def main():
             with open(log_path, "w", encoding="utf-8") as f:
                 f.write(f"unknown action: {action}\n")
             raise RuntimeError(f"unknown action: {action}")
-")
-            raise RuntimeError(f"unknown action: {action}")
     except Exception as e:
         status = "ERROR"
         error_obj = {"message": str(e)}
