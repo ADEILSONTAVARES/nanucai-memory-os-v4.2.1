@@ -1,0 +1,31 @@
+version: "v1"
+type: "api_call_event"
+required:
+  - call_id
+  - job_id
+  - studio_id
+  - action
+  - command
+  - started_at
+  - finished_at
+  - duration_ms
+  - exit_code
+  - stdout_bytes
+  - stderr_bytes
+  - provider
+  - execute_mode
+fields:
+  call_id: {type: "string"}
+  job_id: {type: "string"}
+  studio_id: {type: "string"}
+  action: {type: "string"}
+  command: {type: "array", items: "string"}
+  started_at: {type: "string"}
+  finished_at: {type: "string"}
+  duration_ms: {type: "number"}
+  exit_code: {type: "number"}
+  stdout_bytes: {type: "number"}
+  stderr_bytes: {type: "number"}
+  provider: {type: "string", example: "local_subprocess"}
+  execute_mode: {type: "string", enum: ["SAFE","EXECUTE"]}
+  cost_usd: {type: "number", optional: true}

@@ -4,17 +4,20 @@ import json, os, sys, time, uuid, datetime, subprocess
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 VAULT_RECEIPTS = os.path.join(ROOT, "vault", "receipts")
 VAULT_METRICS = os.path.join(ROOT, "vault", "metrics")
+LEDGER_API_HISTORY = os.path.join(ROOT, "ledger", "api_history")
 
 def now_iso():
     return datetime.datetime.now(datetime.UTC).replace(microsecond=0).isoformat().replace('+00:00','Z')
 
 def write_json(path, obj):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
         json.dump(obj, f, ensure_ascii=False, indent=2)
 
 def main():
     os.makedirs(VAULT_RECEIPTS, exist_ok=True)
     os.makedirs(VAULT_METRICS, exist_ok=True)
+    os.makedirs(LEDGER_API_HISTORY, exist_ok=True)
 
     job_id = "job_" + uuid.uuid4().hex[:12]
     studio_id = os.environ.get("NANUCAI_STUDIO_ID", "S00")
@@ -41,13 +44,35 @@ def main():
         artifacts_dir = os.path.join(ROOT, "vault", "artifacts", job_id)
         os.makedirs(artifacts_dir, exist_ok=True)
         log_path = os.path.join(artifacts_dir, f"{action}.log")
+        ledger_path = os.path.join(LEDGER_API_HISTORY, f"{job_id}.{action}.json")
 
         if action == "validate_noholes":
+            call_started = time.time()
+            call_started_at = now_iso()
             proc = subprocess.run(["bash","scripts/actions/validate_noholes.sh"], capture_output=True, text=True)
+            call_finished = time.time()
+            call_finished_at = now_iso()
             out = (proc.stdout or "") + "\n" + (proc.stderr or "")
             with open(log_path, "w", encoding="utf-8") as f:
                 f.write(out)
             job_request["parameters"]["exit_code"] = proc.returncode
+            api_call_event = {
+                "call_id": "call_" + uuid.uuid4().hex[:12],
+                "job_id": job_id,
+                "studio_id": studio_id,
+                "action": action,
+                "command": ["bash","scripts/actions/validate_noholes.sh"],
+                "started_at": call_started_at,
+                "finished_at": call_finished_at,
+                "duration_ms": round((call_finished - call_started) * 1000.0, 2),
+                "exit_code": proc.returncode,
+                "stdout_bytes": len((proc.stdout or "").encode("utf-8")),
+                "stderr_bytes": len((proc.stderr or "").encode("utf-8")),
+                "provider": "local_subprocess",
+                "execute_mode": execute_mode,
+                "cost_usd": 0.0,
+            }
+            write_json(ledger_path, api_call_event)
             if proc.returncode != 0:
                 raise RuntimeError(f"validate_noholes failed (exit_code={proc.returncode})")
         else:
@@ -74,8 +99,9 @@ def main():
             "ssot/contracts/job_request.yaml",
             "ssot/contracts/receipt.yaml",
             "ssot/contracts/metric_event.yaml",
+            "ssot/contracts/api_call_event.yaml",
         ],
-        "artifacts": [f"vault/artifacts/{job_id}/{job_request['action']}.log"],
+        "artifacts": [f"vault/artifacts/{job_id}/{job_request['action']}.log", f"ledger/api_history/{job_id}.{job_request['action']}.json"],
     }
     if error_obj:
         receipt["error"] = error_obj

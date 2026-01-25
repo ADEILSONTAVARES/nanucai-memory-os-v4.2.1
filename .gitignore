@@ -9,3 +9,5 @@ vault/artifacts/
 __pycache__/
 *.pyc
 *.bak
+
+ledger/api_history/
