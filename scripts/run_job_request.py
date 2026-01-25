@@ -6,7 +6,7 @@ VAULT_RECEIPTS = os.path.join(ROOT, "vault", "receipts")
 VAULT_METRICS = os.path.join(ROOT, "vault", "metrics")
 
 def now_iso():
-    return datetime.datetime.utcnow().replace(microsecond=0).isoformat() + "Z"
+    return datetime.datetime.now(datetime.UTC).replace(microsecond=0).isoformat().replace('+00:00','Z')
 
 def write_json(path, obj):
     with open(path, "w", encoding="utf-8") as f:
