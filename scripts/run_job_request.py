@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import json, os, sys, time, uuid, datetime
+import json, os, sys, time, uuid, datetime, subprocess
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 VAULT_RECEIPTS = os.path.join(ROOT, "vault", "receipts")
@@ -24,7 +24,7 @@ def main():
     job_request = {
         "job_id": job_id,
         "studio_id": studio_id,
-        "action": "validate_noholes",
+        "action": os.environ.get("NANUCAI_ACTION", "validate_noholes"),
         "parameters": {"dry_run": True},
         "plan_id": plan_id,
         "execute_mode": execute_mode,
@@ -37,9 +37,25 @@ def main():
     status = "OK"
     error_obj = None
     try:
-        # Aqui ainda é o "primeiro job real" mínimo: gerar receipt+metric_event por contrato.
-        # Execução pesada/paga continua proibida no SAFE.
-        pass
+        action = job_request["action"]
+        artifacts_dir = os.path.join(ROOT, "vault", "artifacts", job_id)
+        os.makedirs(artifacts_dir, exist_ok=True)
+        log_path = os.path.join(artifacts_dir, f"{action}.log")
+
+        if action == "validate_noholes":
+            proc = subprocess.run(["bash","scripts/actions/validate_noholes.sh"], capture_output=True, text=True)
+            out = (proc.stdout or "") + "\n" + (proc.stderr or "")
+            with open(log_path, "w", encoding="utf-8") as f:
+                f.write(out)
+            job_request["parameters"]["exit_code"] = proc.returncode
+            if proc.returncode != 0:
+                raise RuntimeError(f"validate_noholes failed (exit_code={proc.returncode})")
+        else:
+            with open(log_path, "w", encoding="utf-8") as f:
+                f.write(f"unknown action: {action}\n")
+            raise RuntimeError(f"unknown action: {action}")
+")
+            raise RuntimeError(f"unknown action: {action}")
     except Exception as e:
         status = "ERROR"
         error_obj = {"message": str(e)}
@@ -61,7 +77,7 @@ def main():
             "ssot/contracts/receipt.yaml",
             "ssot/contracts/metric_event.yaml",
         ],
-        "artifacts": [],
+        "artifacts": [f"vault/artifacts/{job_id}/{job_request['action']}.log"],
     }
     if error_obj:
         receipt["error"] = error_obj
