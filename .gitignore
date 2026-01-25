@@ -4,3 +4,8 @@ vault/receipts/
 vault/metrics/
 
 vault/artifacts/
+
+# python junk
+__pycache__/
+*.pyc
+*.bak
