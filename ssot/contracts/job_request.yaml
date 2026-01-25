@@ -1,0 +1,19 @@
+version: "v1"
+type: "job_request"
+required:
+  - job_id
+  - studio_id
+  - action
+  - parameters
+  - plan_id
+  - execute_mode
+  - requested_at
+
+fields:
+  job_id: {type: "string", example: "job_..."}
+  studio_id: {type: "string", example: "S00"}
+  action: {type: "string", example: "validate_noholes"}
+  parameters: {type: "object", example: {"dry_run": true}}
+  plan_id: {type: "string", example: "99D"}
+  execute_mode: {type: "string", enum: ["SAFE", "EXECUTE"], default: "SAFE"}
+  requested_at: {type: "string", example: "2026-01-24T22:00:00Z"}

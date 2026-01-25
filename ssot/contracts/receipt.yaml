@@ -1,0 +1,22 @@
+version: "v1"
+type: "receipt"
+required:
+  - receipt_id
+  - job_id
+  - studio_id
+  - status
+  - started_at
+  - finished_at
+  - evidence_refs
+  - artifacts
+
+fields:
+  receipt_id: {type: "string", example: "rcpt_..."}
+  job_id: {type: "string"}
+  studio_id: {type: "string"}
+  status: {type: "string", enum: ["OK", "ERROR"]}
+  started_at: {type: "string"}
+  finished_at: {type: "string"}
+  evidence_refs: {type: "array", items: "string"}
+  artifacts: {type: "array", items: "string"}
+  error: {type: "object", optional: true}

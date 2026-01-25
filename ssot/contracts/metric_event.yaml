@@ -1,0 +1,19 @@
+version: "v1"
+type: "metric_event"
+required:
+  - event_id
+  - job_id
+  - studio_id
+  - name
+  - value
+  - unit
+  - recorded_at
+
+fields:
+  event_id: {type: "string", example: "evt_..."}
+  job_id: {type: "string"}
+  studio_id: {type: "string"}
+  name: {type: "string", example: "job.duration_ms"}
+  value: {type: "number", example: 123.45}
+  unit: {type: "string", example: "ms"}
+  recorded_at: {type: "string"}

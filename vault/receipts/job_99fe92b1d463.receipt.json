@@ -1,0 +1,14 @@
+{
+  "receipt_id": "rcpt_26da6dde090b",
+  "job_id": "job_99fe92b1d463",
+  "studio_id": "S00",
+  "status": "OK",
+  "started_at": "2026-01-25T02:01:10Z",
+  "finished_at": "2026-01-25T02:01:10Z",
+  "evidence_refs": [
+    "ssot/contracts/job_request.yaml",
+    "ssot/contracts/receipt.yaml",
+    "ssot/contracts/metric_event.yaml"
+  ],
+  "artifacts": []
+}
