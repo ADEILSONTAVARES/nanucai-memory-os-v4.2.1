@@ -26,3 +26,6 @@ Campos mínimos:
 ## Integração SSOT
 - `gndrive/manifest/gn_manifest.json` é o índice mestre
 - `doctor/doctor_fast.sh` é gate obrigatório
+
+## Status
+Inicializado via PrM + Mouse Inteligente (v0.1).
