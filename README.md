@@ -35,6 +35,7 @@ cd nanucai-memory-os-v4.2.1
 
 
 
+
 ## Dev setup (hooks de seguranca)
 
 Apos clonar o repo, ative os hooks locais:
