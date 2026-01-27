@@ -29,3 +29,5 @@ Campos mínimos:
 
 ## Status
 Inicializado via PrM + Mouse Inteligente (v0.1).
+
+## Status\nAtualizado pelo PrM automático.
