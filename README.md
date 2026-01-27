@@ -5,7 +5,6 @@
 ✅ SEM BURACOS | ✅ SEM CONFLITOS | ✅ SEM BUGS
 
 ## Quick Start
-```bash
 # Primeira vez
 bash bootstrap.sh
 
@@ -32,3 +31,14 @@ cd nanucai-memory-os-v4.2.1
 ---
 
 **Score**: 10.0/10 PRODUCTION-READY (TARGET)
+
+
+
+
+## Dev setup (hooks de seguranca)
+
+Apos clonar o repo, ative os hooks locais:
+
+
+
+Isso habilita o pre-commit que bloqueia segredos antes de commit.
