@@ -1,0 +1,6 @@
+[mouse] applying patch: /tmp/prm_patch_20260127T154051Z.diff
+== Doctor Fast (OG10) ==
+✅ PASS
+ M gammanotion/spec/GAMMANOTION_VIVO.md
+?? ssot/evidence/mouse_apply_20260127T154101Z.log
+[mouse] PASS
