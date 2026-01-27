@@ -11,3 +11,6 @@ __pycache__/
 *.bak
 
 ledger/api_history/
+
+# local backups
+README.md.bak.*
