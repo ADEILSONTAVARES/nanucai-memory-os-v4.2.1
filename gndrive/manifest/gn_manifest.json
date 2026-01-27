@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "project": "NANUCAI",
+  "ssot_repo": "ADEILSONTAVARES/nanucai-memory-os-v4.2.1",
+  "workspace": "/srv/nanucai/nanucai-memory-os-v4.2.1",
+  "gateway": {
+    "ws": "ws://127.0.0.1:18789",
+    "bind": "127.0.0.1",
+    "port": 18789,
+    "scope": "loopback-only"
+  },
+  "indexes": {
+    "links_index": "gndrive/links/links_index.md",
+    "ssot_readme": "ssot/OG10_README.md",
+    "prm_canon": "prm/spec/PRM_CANON.md",
+    "doctor_fast": "doctor/doctor_fast.sh"
+  }
+}
