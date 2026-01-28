@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
-python3 -m nanucai_cli.cli "$@"
+
+if [ -x ".venv/bin/python" ]; then
+  PY=".venv/bin/python"
+else
+  PY="python3"
+fi
+
+$PY -m nanucai_cli.cli "$@"

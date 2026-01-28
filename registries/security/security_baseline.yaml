@@ -1,0 +1,25 @@
+version: "1.0.0"
+effective_date: "2026-01-27"
+
+repo_controls:
+  gitignore_must_have:
+    - "runtime/"
+    - ".vault/"
+    - "*.env"
+  workflow_must_exist:
+    - ".github/workflows/ci_pass_strict.yml"
+  canon_docs_must_exist:
+    - "docs/ssot/CANON/VEREDITO_REPO_v13_2.md"
+    - "docs/ssot/CANON/SECURITY_RACKER_PACK_v1.md"
+
+runtime_controls_spec_only:
+  - "systemd supervisor (Linux VPS)"
+  - "non-root service user"
+  - "firewall enabled (cloud + host)"
+  - "fail2ban for SSH"
+  - "backups: snapshot + restore test"
+
+backup_second_line_spec_only:
+  code_mirror: true
+  data_snapshots: true
+  restore_drill: true
