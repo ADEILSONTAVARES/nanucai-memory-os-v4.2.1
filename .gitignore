@@ -14,3 +14,8 @@ ledger/api_history/
 
 # local backups
 README.md.bak.*
+.venv/
+runtime/
+.vault/
+*.env
+.DS_Store
