@@ -2,18 +2,26 @@ name: CI PASS_STRICT (NANUCAI)
 
 on:
   pull_request:
-    branches: ["main","principal"]
+    branches: ["main", "principal"]
   push:
-    branches: ["main","principal"]
+    branches: ["main", "principal"]
+
+permissions:
+  contents: read
 
 jobs:
   pass_strict:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
       - run: python3 -m pip install --upgrade pip
-      - run: python3 -m pip install pyyaml
+      - run: python3 -m pip install -r requirements.txt
       - run: ./scripts/nc repo
+
